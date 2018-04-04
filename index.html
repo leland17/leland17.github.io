@@ -177,14 +177,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br> <br><br>Ironic, hard enough compared to the Raft.<br><br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.</p>
-</blockquote>
-<h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.                                                                     </p>
-<h2 id="–Chubby-Implementer"><a href="#–Chubby-Implementer" class="headerlink" title=" –Chubby Implementer"></a> <div style="float:right">–Chubby Implementer<div></div></div></h2><p> Raft decomposes the consensus problem into three relatively independent sub-problems:</p>
-<pre><code>1. Leader election: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
-2. Log replication: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own.
-3. Safety: if any server has applied a particular log entry to its state machine,  then no other server may apply a different command for the same log index. (the State Machine Safety Property)
-</code></pre>
+<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br> <br><br>Ironic, hard enough compared to the Raft.<br><br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.<br>
+        
+          <a class="article-more-a" href="/2018/04/04/Tech/consensus-protocol/#more">more >></a>
+        
       
 
       
