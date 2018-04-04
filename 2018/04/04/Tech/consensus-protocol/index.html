@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="https://leland17.github.io">
   <title>The Consensus Algorithm - Raft | Blog of Leland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos. Ironic, hard enough compared to the Raft.There are significant gaps between the descri">
+  <meta name="description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
 <meta name="keywords" content="consistency,distribute system,Raft">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Consensus Algorithm - Raft">
 <meta property="og:url" content="https://leland17.github.io/2018/04/04/Tech/consensus-protocol/index.html">
 <meta property="og:site_name" content="Blog of Leland">
-<meta property="og:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos. Ironic, hard enough compared to the Raft.There are significant gaps between the descri">
+<meta property="og:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_basic_element.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_main.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_roles.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_time_stream.png">
-<meta property="og:updated_time" content="2018-04-04T15:50:51.323Z">
+<meta property="og:updated_time" content="2018-04-04T15:53:10.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Consensus Algorithm - Raft">
-<meta name="twitter:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos. Ironic, hard enough compared to the Raft.There are significant gaps between the descri">
+<meta name="twitter:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
 <meta name="twitter:image" content="https://leland17.github.io/pic/raft_basic_element.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Leland" type="application/atom+xml">
@@ -184,9 +184,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br> <br><br>Ironic, hard enough compared to the Raft.<br><br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.<br> <a id="more"></a></p>
+<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br><br>Ironic,<br>Hard enough to understand compared to the Raft.<br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.<br><br> <lable style="float:right">–Chubby Implementer<lable><br> <a id="more"></a></lable></lable></p>
 </blockquote>
-<h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p>Raft is a <strong>consensus algorithm</strong> that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.<br> <lable style="float:right">–Chubby Implementer<lable></lable></lable></p>
+<h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p> Raft is a <strong>consensus algorithm</strong> that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.                       </p>
 <hr>
 <p> Raft decomposes the consensus problem into three relatively independent sub-problems:</p>
 <pre><code>1. `Leader election`: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
