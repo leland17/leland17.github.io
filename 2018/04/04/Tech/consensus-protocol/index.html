@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="Blog of Leland">
 <meta property="og:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://leland17.github.io/pic/raft_basic_element.png">
+<meta property="og:image" content="https://leland17.github.io/pic/raft_basic_elements.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_main.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_roles.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_time_stream.png">
-<meta property="og:updated_time" content="2018-04-04T15:53:10.652Z">
+<meta property="og:updated_time" content="2018-04-04T15:55:35.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Consensus Algorithm - Raft">
 <meta name="twitter:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
-<meta name="twitter:image" content="https://leland17.github.io/pic/raft_basic_element.png">
+<meta name="twitter:image" content="https://leland17.github.io/pic/raft_basic_elements.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Leland" type="application/atom+xml">
   
@@ -188,11 +188,11 @@
 </blockquote>
 <h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p> Raft is a <strong>consensus algorithm</strong> that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.                       </p>
 <hr>
-<p> Raft decomposes the consensus problem into three relatively independent sub-problems:</p>
-<pre><code>1. `Leader election`: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
-2. `Log replication`: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own.
-3. `Safety`: if any server has applied a particular log entry to its state machine,  then no other server may apply a different command for the same log index. (the State Machine Safety Property)
-</code></pre><p> The basic elements of Raft show as belows:<br> <img src="/pic/raft_basic_element.png"></p>
+<p> Raft decomposes the consensus problem into <em>three relatively</em> independent sub-problems:</p>
+<pre><code>1. `**Leader election**`: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
+2. `**Log replication**`: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own.
+3. `**Safety**`: if any server has applied a particular log entry to its state machine,  then no other server may apply a different command for the same log index. (the State Machine Safety Property)
+</code></pre><p> The basic elements of Raft show as belows:<br> <img src="/pic/raft_basic_elements.png"></p>
 <p> The main procedure of Raft depicted as follows:<br> <img src="/pic/raft_main.png"></p>
 <p><strong>Five things</strong> to be determinately implemented:<br><br><code>Election safety</code>, at most one leader can be elected in a given term.<br><code>Leader append-only</code>, never delete or overwrites entries, only append entries.<br><code>Log matching</code>, to be perfect<br><code>Leader completeness</code>, to be complete<br><code>State machine safety</code>, the only entry for the a given index. </p>
 <p><em>ensure above the five properties  are correctly executed, then the Raft is achieved.</em></p>
