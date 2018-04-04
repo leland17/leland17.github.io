@@ -6,27 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://leland17.github.io">
-  <title>The Basic Elements of Kafka | Blog of Leland</title>
+  <title>Tag: Raft | Blog of Leland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。由LinkedIn开发的一个分布式的消息系统，使用Scala编写。">
-<meta name="keywords" content="Distributed System,Kafka">
-<meta property="og:type" content="article">
-<meta property="og:title" content="The Basic Elements of Kafka">
-<meta property="og:url" content="https://leland17.github.io/2018/03/31/Tech/the_basic_elements_of_kafka/index.html">
+  <meta name="description" content="Make Something Different!">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog of Leland">
+<meta property="og:url" content="https://leland17.github.io/tags/Raft/index.html">
 <meta property="og:site_name" content="Blog of Leland">
-<meta property="og:description" content="Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。由LinkedIn开发的一个分布式的消息系统，使用Scala编写。">
+<meta property="og:description" content="Make Something Different!">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka1.png">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka2.png">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka3.png">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka4.png">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka5.png">
-<meta property="og:image" content="https://leland17.github.io/pic/kafka6.png">
-<meta property="og:updated_time" content="2018-03-31T17:06:35.774Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Basic Elements of Kafka">
-<meta name="twitter:description" content="Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。由LinkedIn开发的一个分布式的消息系统，使用Scala编写。">
-<meta name="twitter:image" content="https://leland17.github.io/pic/kafka1.png">
+<meta name="twitter:title" content="Blog of Leland">
+<meta name="twitter:description" content="Make Something Different!">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Leland" type="application/atom+xml">
   
@@ -162,215 +153,68 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Tech/the_basic_elements_of_kafka" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      The Basic Elements of Kafka
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/04/04/Tech/consensus-protocol/" class="archive-article-date">
+  	<time datetime="2018-04-04T15:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/04/04/Tech/consensus-protocol/">consensus_protocol.md</a>
     </h1>
   
 
-        
-        <a href="/2018/03/31/Tech/the_basic_elements_of_kafka/" class="archive-article-date">
-  	<time datetime="2018-03-31T15:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-         
-                <span id="busuanzi_container_page_pv" style="float:right; color:blue;margin-right:12px">views: <span id="busuanzi_value_page_pv"></span></span>
-                
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p><strong>Kafka是一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者规模的网站中的所有动作流数据。由LinkedIn开发的一个分布式的消息系统，使用Scala编写。</strong></p>
-</blockquote>
-<a id="more"></a>
- <div style="text-align:center"><img src="/pic/kafka1.png"></div>
-
-<blockquote>
-<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>  1、通过O(1)的磁盘数据结构提供消息的持久化，这种结构对于即使数以TB的消息存储也能够保持长时间的稳定性能。保证常数时间复杂度的访问性能。<br>  2、高吞吐量  ：即使是非常普通的硬件Kafka也可以支持每秒数百万的消息。<br>  3、支持通过Kafka服务器和消费机集群来分区消息。支持Kafka Server间的消息分区，及分布式消费，同时保证每个Partition内的消息顺序传输。<br>  4、同时支持离线数据处理和实时数据处理。<br>  5、支持Hadoop并行数据加载。支持在线水平扩展。</p>
-</blockquote>
-<hr>
-<h2 id="Kafka术语"><a href="#Kafka术语" class="headerlink" title="Kafka术语"></a>Kafka术语</h2><ul>
-<li><code>Broker</code><br>Kafka集群包含一个或多个服务器，这种服务器被称为broker。</li>
-<li><code>Topic</code><br>每条发布到Kafka集群的消息都有一个类别，这个类别被称为Topic。（物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存于一个或多个broker上但用户只需指定消息的Topic即可生产或消费数据而不必关心数据存于何处）Topic在逻辑上可以被认为是一个queue，每条消费都必须指定它的Topic，可以简单理解为必须指明把这条消息放进哪个queue里。</li>
-<li><code>Partition</code><br>Partition是物理上的概念，每个Topic包含一个或多个Partition.</li>
-<li><code>Producer</code><br>负责发布消息到Kafka broker</li>
-<li><code>Consumer</code><br>消息消费者，向Kafka broker读取消息的客户端。</li>
-<li><p><code>Consumer Group</code><br>每个Consumer属于一个特定的Consumer Group（可为每个Consumer指定group name，若不指定group name则属于默认的group）。<br><div style="text-align:center"><img src="/pic/kafka2.png"></div><br>Kafka通过Zookeeper管理集群配置，选举leader，以及在Consumer Group发生变化时进行rebalance。<br>kafka集群有多个kafka实例组成，每个实例(server)成为broker。无论是kafka集群，还是producer和consumer都依赖于zookeeper来保证系统可用性集群保存一些meta信息。<br>kafka 在 zookeeper 中的存储结构如下图所示：<br><div style="text-align:center"><img src="/pic/kafka3.png"></div><br>物理上把Topic分成一个或多个Partition，每个Partition在物理上对应一个文件夹，该文件夹下存储这个Partition的所有消息和索引文件。<br>每个日志文件都是一个log entry序列，每个log entry包含一个4字节整型数值（值为N+5），1个字节的”magic value”，4个字节的CRC校验码，其后跟N个字节的消息体。每条消息都有一个当前Partition下唯一的64字节的offset，它指明了这条消息的起始位置。</p>
-<blockquote>
-<p>message length ： 4 bytes (value: 1+4+n)<br>“magic” value ： 1 byte<br>crc ： 4 bytes<br>payload ： n bytes</p>
-</blockquote>
-<p>这个log entries并非由一个文件构成，而是分成多个segment，每个segment以该segment第一条消息的offset命名并以“.kafka”为后缀。另外会有一个索引文件，它标明了每个segment下包含的log entry的offset范围，如下图所示。<br><div style="text-align:center"><img src="/pic/kafka4.png"></div><br>因为每条消息都被append到该Partition中，属于顺序写磁盘，因此效率非常高（经验证，顺序写磁盘效率比随机写内存还要高，这是Kafka高吞吐率的一个很重要的保证）。<br><div style="text-align:center"> <img src="/pic/kafka5.png"></div><br>多个Partition属于同一个topic，但是如何保证topic消息的顺序呢？<br>对于传统的message queue而言，一般会删除已经被消费的消息，而Kafka集群会保留所有的消息，无论其被消费与否。当然，因为磁盘限制，不可能永久保留所有数据（实际上也没必要），因此Kafka提供两种策略删除旧数据。一是基于时间，二是基于Partition文件大小。例如可以通过配置$KAFKA_HOME/config/server.properties，让Kafka删除一周前的数据，也可在Partition文件超过1GB时删除旧数据。<br>Kafka会为每一个Consumer Group保留一些metadata信息——当前消费的消息的position，也即offset。这个offset由Consumer控制。正常情况下Consumer会在消费完一条消息后递增该offset。当然，Consumer也可将offset设成一个较小的值，重新消费一些消息。因为offet由Consumer控制，所以Kafka broker是无状态的，它不需要标记哪些消息被哪些消费过，也不需要通过broker去保证同一个Consumer Group只有一个Consumer能消费某一条消息，因此也就不需要锁机制，这也为Kafka的高吞吐率提供了有力保障。<br>在发送一条消息时，可以指定这条消息的key，Producer根据这个key和Partition机制来判断应该将这条消息发送到哪个Partition。Partition机制可以通过指定Producer的partition. class这一参数来指定，该class必须实现kafka.producer.Partitioner接口。<br>回答了上述的疑问！！<br>使用Consumer high level API时，同一Topic的一条消息只能被同一个Consumer Group内的一个Consumer消费（可以多次消费），但多个Consumer Group可同时消费这一消息。<br><div style="text-align:center"><img src="/pic/kafka6.png"></div><br>Kafka的设计理念之一就是同时提供离线处理和实时处理。根据这一特性，可以使用Storm这种实时流处理系统对消息进行实时在线处理，同时使用Hadoop这种批处理系统进行离线处理，还可以同时将数据实时备份到另一个数据中心，只需要保证这三个操作所使用的Consumer属于不同的Consumer Group即可。<br>push模式很难适应消费速率不同的消费者，因为消息发送速率是由broker决定的。push模式的目标是尽可能以最快速度传递消息，但是这样很容易造成Consumer来不及处理消息，典型的表现就是拒绝服务以及网络拥塞。而pull模式则可以根据Consumer的消费能力以适当的速率消费消息。<br>对于Kafka而言，pull模式更合适。pull模式可简化broker的设计，Consumer可自主控制消费消息的速率，同时Consumer可以自己控制消费方式——即可批量消费也可逐条消费，同时还能选择不同的提交方式从而实现不同的传输语义。</p>
-</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/pic/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/pic/weixin.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Distributed System</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">consistency</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kafka</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">distribute system</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Raft</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://leland17.github.io/2018/03/31/Tech/the_basic_elements_of_kafka/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/04/04/Tech/consensus-protocol/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          consensus_protocol.md
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/03/29/Tech/learning_about_distrinuted_transaction_system/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Learning of Distributed Transaction System</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    </div></section>
   
 
-  
-
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -399,9 +243,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

@@ -155,6 +155,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Tech/consensus-protocol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/04/Tech/consensus-protocol/">consensus_protocol.md</a>
+    </h1>
+  
+
+        
+        <a href="/2018/04/04/Tech/consensus-protocol/" class="archive-article-date">
+  	<time datetime="2018-04-04T15:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-04</time>
+</a>
+        
+         
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br> <br><br>Ironic, hard enough compared to the Raft.<br><br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.</p>
+</blockquote>
+<h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p>Raft is a consensus algorithm that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.                                                                     </p>
+<h2 id="–Chubby-Implementer"><a href="#–Chubby-Implementer" class="headerlink" title=" –Chubby Implementer"></a> <div style="float:right">–Chubby Implementer<div></div></div></h2><p> Raft decomposes the consensus problem into three relatively independent sub-problems:</p>
+<pre><code>1. Leader election: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
+2. Log replication: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own.
+3. Safety: if any server has applied a particular log entry to its state machine,  then no other server may apply a different command for the same log index. (the State Machine Safety Property)
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">consistency</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">distribute system</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Raft</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/04/04/Tech/consensus-protocol/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Tech/the_basic_elements_of_kafka" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -262,7 +352,7 @@
         <blockquote>
 <p>分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。</p>
 </blockquote>
-<h2 id="结论重要："><a href="#结论重要：" class="headerlink" title="结论重要："></a>结论重要：</h2><ol>
+<h2 id="重要结论："><a href="#重要结论：" class="headerlink" title="重要结论："></a>重要结论：</h2><ol>
 <li>如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务.</li>
 <li>如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保型)来解决.</li>
 <li>如果业务场景需要强一致性, 并且只能够进行分布式服务部署, 那么最好是使用TCC方案而不是2PC方案来解决.</li>
@@ -490,11 +580,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Distributed System</a>
+                <a href="javascript:void(0)" class="js-tag color2">consistency</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Distributed System，Kafka</a>
+                <a href="javascript:void(0)" class="js-tag color3">distribute system</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Raft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Distributed System</a>
               </li>
              
               <li class="article-tag-list-item">

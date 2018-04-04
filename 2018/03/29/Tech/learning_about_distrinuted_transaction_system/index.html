@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="https://leland17.github.io">
   <title>Learning of Distributed Transaction System | Blog of Leland</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  结论重要： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
+  <meta name="description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  重要结论： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
 <meta name="keywords" content="Distributed System">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning of Distributed Transaction System">
 <meta property="og:url" content="https://leland17.github.io/2018/03/29/Tech/learning_about_distrinuted_transaction_system/index.html">
 <meta property="og:site_name" content="Blog of Leland">
-<meta property="og:description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  结论重要： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
+<meta property="og:description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  重要结论： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://leland17.github.io/pic/tryconfirmcancel.png">
 <meta property="og:image" content="https://leland17.github.io/pic/messageTransaction.png">
 <meta property="og:image" content="https://leland17.github.io/pic/2PC.png">
-<meta property="og:updated_time" content="2018-03-31T15:17:38.421Z">
+<meta property="og:updated_time" content="2018-03-31T17:12:53.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning of Distributed Transaction System">
-<meta name="twitter:description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  结论重要： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
+<meta name="twitter:description" content="分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。  重要结论： 如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务. 如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保">
 <meta name="twitter:image" content="https://leland17.github.io/pic/tryconfirmcancel.png">
   
     <link rel="alternative" href="/atom.xml" title="Blog of Leland" type="application/atom+xml">
@@ -185,7 +185,7 @@
         <blockquote>
 <p>分布式事务系统, Distributed Transaction System, 指事务的参与者、支持事务的服务器、资源服务器以及事务管理器分别位于不同的分布式的不同节点之上。</p>
 </blockquote>
-<h2 id="结论重要："><a href="#结论重要：" class="headerlink" title="结论重要："></a>结论重要：</h2><ol>
+<h2 id="重要结论："><a href="#重要结论：" class="headerlink" title="重要结论："></a>重要结论：</h2><ol>
 <li>如果业务场景需要强一致性, 那么尽量避免将它们放在不同服务中, 也就是尽量使用本地事务, 避免使用强一致性的分布式事务.</li>
 <li>如果业务场景能够接受最终一致性, 那么最好是使用基于消息的最终一致性的方案(异步确保型)来解决.</li>
 <li>如果业务场景需要强一致性, 并且只能够进行分布式服务部署, 那么最好是使用TCC方案而不是2PC方案来解决.</li>
@@ -473,11 +473,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Distributed System</a>
+                <a href="javascript:void(0)" class="js-tag color2">consistency</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Distributed System，Kafka</a>
+                <a href="javascript:void(0)" class="js-tag color3">distribute system</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Raft</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Distributed System</a>
               </li>
              
               <li class="article-tag-list-item">
