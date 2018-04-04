@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://leland17.github.io/pic/raft_main.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_roles.png">
 <meta property="og:image" content="https://leland17.github.io/pic/raft_time_stream.png">
-<meta property="og:updated_time" content="2018-04-04T15:55:35.032Z">
+<meta property="og:updated_time" content="2018-04-04T16:00:46.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Consensus Algorithm - Raft">
 <meta name="twitter:description" content="There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.Ironic,Hard enough to understand compared to the Raft.There are significant gaps betwee">
@@ -184,21 +184,23 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br><br>Ironic,<br>Hard enough to understand compared to the Raft.<br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.<br><br> <lable style="float:right">–Chubby Implementer<lable><br> <a id="more"></a></lable></lable></p>
+<p>There is only one consensus protocol, and that’s Paxos - all other approaches are just broken versions of Paxos.<br><br><br>Ironic,<br>Hard enough to understand compared to the Raft.<br><br>There are significant gaps between the description of the Paxos algorithm and the needs of a real-world system. . . . the final system will be based on an un-proven protocol.<br></p>
 </blockquote>
+<p><lable style="float:right">–Chubby Implementer<lable><br><br></lable></lable></p>
+ <a id="more"></a>
 <h2 id="What-is-Raft"><a href="#What-is-Raft" class="headerlink" title="What is Raft"></a>What is Raft</h2><p> Raft is a <strong>consensus algorithm</strong> that is designed to be easy to understand. It’s equivalent to Paxos in fault-tolerance and performance. The difference is that it’s decomposed into relatively independent sub-problems, and it cleanly addresses all major pieces needed for practical systems. We hope Raft will make consensus available to a wider audience, and that this wider audience will be able to develop a variety of higher quality consensus-based systems than are available today.                       </p>
 <hr>
 <p> Raft decomposes the consensus problem into <em>three relatively</em> independent sub-problems:</p>
 <pre><code>1. `**Leader election**`: a new leader must be chosen when starting the cluster and when an exsiting leader fails.
 2. `**Log replication**`: the leader must accept log entries from clients and replicate them across the cluster, forcing the other logs to agree with its own.
 3. `**Safety**`: if any server has applied a particular log entry to its state machine,  then no other server may apply a different command for the same log index. (the State Machine Safety Property)
-</code></pre><p> The basic elements of Raft show as belows:<br> <img src="/pic/raft_basic_elements.png"></p>
-<p> The main procedure of Raft depicted as follows:<br> <img src="/pic/raft_main.png"></p>
+</code></pre><p> The basic elements of Raft show as belows:<br>  <div style="text-align:center"><img src="/pic/raft_basic_elements.png"><div></div></div></p>
+<p> The main procedure of Raft depicted as follows:<br>  <div style="text-align:center"><img src="/pic/raft_main.png"><div></div></div></p>
 <p><strong>Five things</strong> to be determinately implemented:<br><br><code>Election safety</code>, at most one leader can be elected in a given term.<br><code>Leader append-only</code>, never delete or overwrites entries, only append entries.<br><code>Log matching</code>, to be perfect<br><code>Leader completeness</code>, to be complete<br><code>State machine safety</code>, the only entry for the a given index. </p>
 <p><em>ensure above the five properties  are correctly executed, then the Raft is achieved.</em></p>
 <p>A Raft cluster contains several servers, five is a typical number and tolerates two failures at the same time.</p>
-<p>At a given time, each server is one of three states: leader, follower, or candidate.<br>In normal operation, only one leader and the others followers. Followers only respond to leader and candidates.<br>Leader handles all the client requests.<br>If a client contacts a follower, the follower will redirects it to the leader.<br>Candidates work when electing a new leader.<br><img src="/pic/raft_roles.png"></p>
-<p>Time is divided into terms, and each term begins with election.<br>After election, the leader works for the rest of the term.<br>A new election will begin shortly after a split vote.<br>Raft ensures at most one leader in a  given term.<br><img src="/pic/raft_time_stream.png"></p>
+<p>At a given time, each server is one of three states: leader, follower, or candidate.<br>In normal operation, only one leader and the others followers. Followers only respond to leader and candidates.<br>Leader handles all the client requests.<br>If a client contacts a follower, the follower will redirects it to the leader.<br>Candidates work when electing a new leader.<br> <div style="text-align:center"><img src="/pic/raft_roles.png"><div></div></div></p>
+<p>Time is divided into terms, and each term begins with election.<br>After election, the leader works for the rest of the term.<br>A new election will begin shortly after a split vote.<br>Raft ensures at most one leader in a  given term.<br> <div style="text-align:center"><img src="/pic/raft_time_stream.png"><div></div></div></p>
 <p>Different severs may observer the transitions between terms at different time, and in some situations a server may not observe an election or entire terms.<br>Terms act a logical clock, which allows servers to detect obsolete information such as stale leaders.<br>Each server stores a current-term number, which increases monotonically. </p>
 <p>Raft servers communicate use remote procedure calls (RPCs), two type of RPCs is need for the consensus algorithm: <strong>RequestVote RPCs and AppendEntries RPCs</strong>.</p>
 
